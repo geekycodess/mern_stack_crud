@@ -1,15 +1,17 @@
 const express = require('express');
 const router = express.Router();
 
+
 // Student model
 const Students = require('../models/students');
 
 // @route   GET /api/students/
 // @desc    Get all students
 // @access  Public
-router.get('/', async (req, res) => {
+router.get('/',  async (req, res) => {
   try {
     const students = await Students.find({});
+    
     res.send({ students })
   } catch(err) {
     res.status(400).send({ error: err });
